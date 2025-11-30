@@ -1,0 +1,3 @@
+#!/bin/sh
+cd ~/Sandbox/xhyve
+result=`osascript -e 'do shell script "./xhyverun-windows.sh" with administrator privileges'`

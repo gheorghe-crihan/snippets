@@ -12,7 +12,7 @@
 #include <unistd.h>
 
 #define Log(fmt, ...) \
-fprintf(stderr, "%s\n", [[NSString stringWithFormat:(fmt), ##__VA_ARGS__] UTF8String])
+fprintf(stderr, "%s", [[NSString stringWithFormat:(fmt), ##__VA_ARGS__] UTF8String])
 
 NSString *Right(NSString *s, NSInteger width, NSString *padSymbol)
 {
@@ -42,7 +42,7 @@ int main(int argc, const char * argv[]) {
 
         NSMutableSet *result = [NSMutableSet setWithArray:(__bridge NSArray *)wlBefore];
         [result minusSet:[NSSet setWithArray:(__bridge NSArray *)wlAfter]];
-        Log(@"\nList of windows that moved:");
+        Log(@"\nList of windows that moved:\n");
         Log(@"%@ %@  %@\t[Title] SubTitle\n",
               Right(@"PID",7,@" "),
               Right(@"WinID",5,@" "),
@@ -74,7 +74,7 @@ int main(int argc, const char * argv[]) {
 
             if ([WindowName length]!=0)
                 WindowName = [@" " stringByAppendingString:WindowName];
-            Log(@"%@ %@ %@\t[%@] %@\n",
+            Log(@"%@ %@  %@\t[%@] %@\n",
                   Right([OwnerPID stringValue],7,@" "),
                   Right([WindowNumber stringValue],5,@" "),
                   Left(Coords,21,@" "),

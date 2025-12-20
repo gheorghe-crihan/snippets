@@ -12,7 +12,7 @@
 #include <unistd.h>
 
 #define Log(fmt, ...) \
-fprintf(stderr, "%s", [[NSString stringWithFormat:(fmt), ##__VA_ARGS__] UTF8String])
+fprintf(stdout, "%s", [[NSString stringWithFormat:(fmt), ##__VA_ARGS__] UTF8String])
 
 NSString *Right(NSString *s, NSInteger width, NSString *padSymbol)
 {
